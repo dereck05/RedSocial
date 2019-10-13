@@ -12,7 +12,7 @@ package redsocial;
 public class User {
     private String username;
     private String ip;
-    private int estado;
+    
     
     public void setUsername(String user){this.username = user;}
     public String getUsername(){return this.username;}

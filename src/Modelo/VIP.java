@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package redsocial;
+package Modelo;
 
+import Modelo.User;
+import Modelo.Follower;
 import java.util.ArrayList;
 
 /**

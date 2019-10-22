@@ -17,9 +17,8 @@ public class VIP extends User {
     public ArrayList<Mensaje> mensajes;
     public ArrayList<Follower> followers;
     
-    public VIP(String username,String IP){
-        setUsername(username);
-        setIp(IP);
+    public VIP(String nombre, String apellido1, String apellido2, String username){
+        super(nombre, apellido1, apellido2, username);
         this.mensajes = new ArrayList<>();
         this.followers = new ArrayList<>();
     }
@@ -29,7 +28,6 @@ public class VIP extends User {
         mensajes.add(m);                    //no se si aqui iria el observer
     }
     public void addFollower(Follower f){
-        
         followers.add(f);                    //aqui puede ser tambien los observadores
     }
     

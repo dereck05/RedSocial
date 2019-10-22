@@ -14,9 +14,8 @@ import java.util.ArrayList;
 public class Follower extends User {
     private ArrayList <VIP> followed;
     
-    public Follower(String username,String IP){
-        setUsername(username);
-        setIp(IP);
+    public Follower(String nombre, String apellido1, String apellido2, String username){
+        super(nombre, apellido1, apellido2,username);
         this.followed = new ArrayList<>();
     }
     

@@ -27,32 +27,32 @@ public class VistaVIP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_postearMensaje = new javax.swing.JButton();
+        btn_darseDeBaja = new javax.swing.JButton();
+        btn_verMensajes = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 51, 204));
 
-        jButton1.setText("Postear mensaje");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_postearMensaje.setText("Postear mensaje");
+        btn_postearMensaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_postearMensajeActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Darse de baja");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_darseDeBaja.setText("Darse de baja");
+        btn_darseDeBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_darseDeBajaActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Ver mensajes");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_verMensajes.setText("Ver mensajes");
+        btn_verMensajes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_verMensajesActionPerformed(evt);
             }
         });
 
@@ -68,9 +68,9 @@ public class VistaVIP extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_postearMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_darseDeBaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_verMensajes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(138, 138, 138))
         );
         layout.setVerticalGroup(
@@ -79,28 +79,28 @@ public class VistaVIP extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btn_postearMensaje)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btn_darseDeBaja)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btn_verMensajes)
                 .addGap(96, 96, 96))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_postearMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_postearMensajeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_postearMensajeActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_darseDeBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_darseDeBajaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_darseDeBajaActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_verMensajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verMensajesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_verMensajesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,9 +138,9 @@ public class VistaVIP extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton btn_darseDeBaja;
+    public javax.swing.JButton btn_postearMensaje;
+    public javax.swing.JButton btn_verMensajes;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

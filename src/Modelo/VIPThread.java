@@ -34,9 +34,9 @@ public class VIPThread extends Thread implements IObserver,Serializable, Runnabl
     ObjectOutputStream os;
     VIP famoso;
     JsonVIP json;
-    String VIPJson;
+    public static String VIPJson;
     
-    public static HashMap<String, String> VIPLista;
+    //public static HashMap<String, String> VIPLista;
     
     public VIPThread() {
         json = new JsonVIP();
@@ -78,7 +78,6 @@ public class VIPThread extends Thread implements IObserver,Serializable, Runnabl
             System.out.println(opcion.getComando());
             switch (opcion.getComando()){
                 case "notificacion observador":
-                    System.out.println(opcion.getObjeto());
                     VIPJson = opcion.getObjeto();
                     VIPLista = json.obtenerHashMapObjetoJson(VIPJson);
                     break;

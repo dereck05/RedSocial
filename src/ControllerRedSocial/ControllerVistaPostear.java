@@ -13,10 +13,7 @@ import VistaVIP.VistaVIP;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author naty9
- */
+
 public class ControllerVistaPostear implements ActionListener {
     VistaPostear vista;
     VIPThread famoso;
@@ -60,8 +57,6 @@ public class ControllerVistaPostear implements ActionListener {
        String objJson = json.establecerJson(message);
        MensajeObject objeto = new MensajeObject();
        objeto.setComando("Postear mensaje");
-       
-
        int numero = (int) (Math.random() * 100000) + 1;
        objeto.setKey(Integer.toString(numero));
        objeto.setObjeto(objJson);

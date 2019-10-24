@@ -49,7 +49,7 @@ public class VistaVIP extends javax.swing.JFrame {
             }
         });
 
-        btn_verMensajes.setText("Ver mensajes");
+        btn_verMensajes.setText("Ver Mensajes");
         btn_verMensajes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_verMensajesActionPerformed(evt);

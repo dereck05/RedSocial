@@ -10,6 +10,7 @@ import Modelo.JsonVIP;
 import Modelo.VIPThread;
 import VistaVIP.VistaPostear;
 import VistaVIP.VistaVIP;
+import VistaVIP.VistaVerMensajes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -43,8 +44,9 @@ public class ControllerVistaVIP implements ActionListener{
             case "Darse de baja":
                 //aceptarOfertas();
                 break;
-            case "Ver mensajes":
-                //cerrarSubasta();
+            case "Ver Mensajes":
+                verMensajes();
+                break;
             default:
                 JOptionPane.showMessageDialog(vista, "Opción no registrada");
                 break;
@@ -54,6 +56,13 @@ public class ControllerVistaVIP implements ActionListener{
     private void postearMensaje() {
         VistaPostear vds = new VistaPostear();   
         ControllerVistaPostear cvds = new ControllerVistaPostear(vds,famoso);
+        cvds.setUsernameVIP(usernameVIP); 
+        vds.setVisible(true);
+    }
+    
+    private void verMensajes() {
+        VistaVerMensajes vds = new VistaVerMensajes();   
+        ControllerVistaVerMensajes cvds = new ControllerVistaVerMensajes(vds,famoso);
         cvds.setUsernameVIP(usernameVIP); 
         vds.setVisible(true);
     }

@@ -11,10 +11,6 @@ import VistaVIP.VistaVIP;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author naty9
- */
 public class ControllerVistaCrearVIP implements ActionListener{
     private VistaCrearVIP vista;
     private VIPThread famoso;
@@ -22,11 +18,12 @@ public class ControllerVistaCrearVIP implements ActionListener{
     public ControllerVistaCrearVIP(VistaCrearVIP pVista, VIPThread pFamoso){
         this.vista = pVista;
         this.famoso = pFamoso;
+        this.vista.btnIniciar.addActionListener(this);
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        iniciar();
     }
     
     public void iniciar(){

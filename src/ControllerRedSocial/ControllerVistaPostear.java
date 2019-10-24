@@ -5,8 +5,11 @@
  */
 package ControllerRedSocial;
 
+import Modelo.*;
+import API.MensajeObject;
 import Modelo.VIPThread;
 import VistaVIP.VistaPostear;
+import VistaVIP.VistaVIP;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,19 +18,28 @@ import java.awt.event.ActionListener;
  * @author naty9
  */
 public class ControllerVistaPostear implements ActionListener {
-    private VistaPostear vista;
-    private VIPThread famoso;
-    private String usernameVIP;
-    private String vip;
+    VistaPostear vista;
+    VIPThread famoso;
+    String usernameVIP;
+    String vip;
+    JsonVIP json;
+
+    
             
     public ControllerVistaPostear(VistaPostear pVista,VIPThread pFamoso){
         this.vista = pVista;
         this.famoso = pFamoso;
+        json = new JsonVIP();
+        this.vista.btnPost.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(e.getActionCommand()){
+            case "Enviar":
+                postear();
+            
+        }
     }
     
     public void setVIP(){
@@ -40,6 +52,27 @@ public class ControllerVistaPostear implements ActionListener {
 
     public String getVIP() {
         return vip;
+    }
+    
+    public void postear(){
+       Mensaje message = new Mensaje(this.vista.txt_post.getText());
+ 
+       String objJson = json.establecerJson(message);
+       MensajeObject objeto = new MensajeObject();
+       objeto.setComando("Postear mensaje");
+       
+
+       int numero = (int) (Math.random() * 100000) + 1;
+       objeto.setKey(Integer.toString(numero));
+       objeto.setObjeto(objJson);
+       objeto.setNombreAplcacion("Subasta");
+       famoso.enviarMensaje(objeto);
+       VistaVIP vms = new VistaVIP();
+       ControllerVistaVIP cvms = new ControllerVistaVIP(vms,famoso);
+       cvms.setUser(this.famoso.getVIP().getNombre());
+       vms.setVisible(true);
+       this.vista.setVisible(false);
+        
     }
     
 }

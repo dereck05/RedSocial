@@ -14,10 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author naty9
- */
+
 public class ControllerVistaVIP implements ActionListener{
     private VistaVIP vista;
     private VIPThread famoso;
@@ -32,18 +29,21 @@ public class ControllerVistaVIP implements ActionListener{
         this.vista.btn_darseDeBaja.addActionListener(this);
         this.vista.btn_verMensajes.addActionListener(this);
     }
+    
+    public void setUser(String user){
+        this.usernameVIP = user;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println(e.getActionCommand());
         switch(e.getActionCommand()){
-            case "Postear Mensaje":
+            case "Postear mensaje":
                 postearMensaje();
                 break;
-            case "Darse de Baja":
+            case "Darse de baja":
                 //aceptarOfertas();
                 break;
-            case "Ver Mensajes":
+            case "Ver mensajes":
                 //cerrarSubasta();
             default:
                 JOptionPane.showMessageDialog(vista, "Opción no registrada");
@@ -54,38 +54,7 @@ public class ControllerVistaVIP implements ActionListener{
     private void postearMensaje() {
         VistaPostear vds = new VistaPostear();   
         ControllerVistaPostear cvds = new ControllerVistaPostear(vds,famoso);
-        cvds.setUsernameVIP(usernameVIP);
-        cvds.setVIP();
+        cvds.setUsernameVIP(usernameVIP); 
         vds.setVisible(true);
     }
-    /*private void cerrarSubasta(){
-        Subasta s = json.obtenerObjetoJson(SubastadorThread.subastasLista.get(nombreSubasta));
-        s.setStatus("Cerrada");
-        String s1 = json.establecerJson(s);
-        MensajeObject objeto = new MensajeObject();
-        objeto.setComando("Cerrar Subasta");
-        objeto.setNombreAplcacion("Subasta");
-        objeto.setKey(nombreSubasta);
-        objeto.setObjeto(s1);
-        subastador.enviarMensaje(objeto);   
-        JOptionPane.showMessageDialog(vista, "Subasta cerrada con éxito");
-    }
-    private void cancelarSubasta(){
-        Subasta s = json.obtenerObjetoJson(SubastadorThread.subastasLista.get(nombreSubasta));
-        s.setStatus("Cancelada");
-        String s1 = json.establecerJson(s);
-        MensajeObject objeto = new MensajeObject();
-        objeto.setComando("Cancelar Subasta");
-        objeto.setNombreAplcacion("Subasta");
-        objeto.setKey(nombreSubasta);
-        objeto.setObjeto(s1);
-        subastador.enviarMensaje(objeto);   
-        JOptionPane.showMessageDialog(vista, "Subasta cerrada con éxito");
-    }
-    private void aceptarOfertas() {
-        VistaAceptarOfertas vao = new VistaAceptarOfertas();
-    }*/
-    
-    
-    
 }

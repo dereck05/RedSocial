@@ -13,13 +13,18 @@ public class Mensaje {
     private String contenido;
     private int likes;
     private int dislikes;
+    private VIP vip;
     
     public Mensaje(String content){
         this.contenido = content;
         this.likes = 0;
         this.dislikes =0;
+       
+        
     }
-    
+    public void setVIP(VIP v){
+        this.vip = v;
+    }
     public void setContenido(String cont){
         this.contenido = cont;
     }

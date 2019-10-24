@@ -37,4 +37,10 @@ public class Mensaje {
     public void addDislikes(){
         this.dislikes = this.dislikes+=1;
     }
+    public String getLikes(){
+        return Integer.toString(likes);
+    }
+    public String getDislikes(){
+        return Integer.toString(dislikes);
+    }
 }

@@ -5,6 +5,8 @@
  */
 package VistaVIP;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author derec
@@ -16,6 +18,7 @@ public class VistaVerMensajes extends javax.swing.JFrame {
      */
     public VistaVerMensajes() {
         initComponents();
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     /**

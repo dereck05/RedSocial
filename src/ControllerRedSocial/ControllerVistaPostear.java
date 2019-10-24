@@ -12,12 +12,12 @@ import VistaVIP.VistaPostear;
 import VistaVIP.VistaVIP;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 
 public class ControllerVistaPostear implements ActionListener {
     VistaPostear vista;
     VIPThread famoso;
-    String usernameVIP;
     String vip;
     JsonVIP json;
 
@@ -38,14 +38,6 @@ public class ControllerVistaPostear implements ActionListener {
             
         }
     }
-    
-    public void setVIP(){
-        this.vip = VIPThread.VIPLista.get(usernameVIP);
-    }
-    
-    public void setUsernameVIP(String usernameVIP) {
-        this.usernameVIP = usernameVIP;
-    }
 
     public String getVIP() {
         return vip;
@@ -53,21 +45,8 @@ public class ControllerVistaPostear implements ActionListener {
     
     public void postear(){
        Mensaje message = new Mensaje(this.vista.txt_post.getText());
- 
-       String objJson = json.establecerJson(message);
-       MensajeObject objeto = new MensajeObject();
-       objeto.setComando("Postear mensaje");
-       int numero = (int) (Math.random() * 100000) + 1;
-       objeto.setKey(Integer.toString(numero));
-       objeto.setObjeto(objJson);
-       objeto.setNombreAplcacion("Subasta");
-       famoso.enviarMensaje(objeto);
-       VistaVIP vms = new VistaVIP();
-       ControllerVistaVIP cvms = new ControllerVistaVIP(vms,famoso);
-       cvms.setUser(this.famoso.getVIP().getNombre());
-       vms.setVisible(true);
-       this.vista.setVisible(false);
-        
+       famoso.postearMensaje(famoso.getVIP().getUsername(),message);
+       JOptionPane.showMessageDialog(vista, "Post publicado!"); 
     }
     
 }

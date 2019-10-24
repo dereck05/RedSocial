@@ -7,6 +7,8 @@ package Modelo;
 
 import API.Json;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -16,29 +18,31 @@ import java.util.HashMap;
 public class JsonVIP extends Json{
 
     @Override
-    public Object obtenerObjetoJson(String json) {
+    public VIP obtenerObjetoJson(String json) {
         try{
             final Gson gson = new Gson();
-            final Mensaje cl = gson.fromJson(json, Mensaje.class);
+            final VIP cl = gson.fromJson(json, VIP.class);
             return cl;
         }
-        catch(Exception e){
+        catch(JsonSyntaxException e){
             return null;
         }
     }
 
     @Override
-    public Object[] obtenerArrayObjetoJson(String json) {
-        try{
-            Mensaje[] c = null;
+    public ArrayList<Object> obtenerArrayObjetoJson(HashMap<String,String> arreglo){
+        ArrayList<Object> c = new ArrayList<>();
+        //try{
             Gson gson = new Gson();
-             c =  gson.fromJson(json, Mensaje[].class);
+            for(String value: arreglo.values()){
+                System.out.println(value);
+                VIP cl = (VIP)obtenerObjetoJson(value);
+                c.add(cl);
+            }
+        //}
+            System.out.println("si");
             return c;
         }
-        catch(Exception e){
-            return null;
-        }
-    }
 
     @Override
     public HashMap<String, String> obtenerHashMapObjetoJson(String json) {

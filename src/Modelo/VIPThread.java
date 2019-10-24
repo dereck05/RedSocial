@@ -8,15 +8,20 @@ package Modelo;
 import API.IObserver;
 import API.MensajeObject;
 import ControllerRedSocial.ControllerVistaCrearVIP;
+import ControllerRedSocial.ControllerVistaPostear;
 import ControllerRedSocial.ControllerVistaVIP;
+import ControllerRedSocial.ControllerVistaVerMensajes;
 import VistaVIP.VistaCrearVIP;
+import VistaVIP.VistaPostear;
 import VistaVIP.VistaVIP;
+import VistaVIP.VistaVerMensajes;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,10 +41,11 @@ public class VIPThread extends Thread implements IObserver,Serializable, Runnabl
     JsonVIP json;
     public static String VIPJson;
     
-    //public static HashMap<String, String> VIPLista;
+    public static HashMap<String, String> VIPLista;
     
     public VIPThread() {
         json = new JsonVIP();
+        
     }
     
     public void crearFlujos(){
@@ -73,6 +79,8 @@ public class VIPThread extends Thread implements IObserver,Serializable, Runnabl
 
     public void run(){
         crearFlujos();
+        
+        
         while(true){
             MensajeObject opcion = notifyObserver();
             System.out.println(opcion.getComando());
@@ -80,6 +88,7 @@ public class VIPThread extends Thread implements IObserver,Serializable, Runnabl
                 case "notificacion observador":
                     VIPJson = opcion.getObjeto();
                     VIPLista = json.obtenerHashMapObjetoJson(VIPJson);
+
                     break;
                 default:
                     System.out.println("Comando no encontrado");
@@ -98,6 +107,45 @@ public class VIPThread extends Thread implements IObserver,Serializable, Runnabl
 
     public void setVIP(VIP subastador) {
         this.famoso = famoso;
+    }
+    public void saveVIP(){
+        String objJson = json.establecerJson(famoso);
+        MensajeObject objeto = new MensajeObject();
+        objeto.setComando("Crear VIP");
+        objeto.setKey(famoso.getUsername());
+        objeto.setObjeto(objJson);
+        objeto.setNombreAplcacion("RedSocial");
+        enviarMensaje(objeto);
+    }
+    public void postearMensaje(String vipName,Mensaje m) {
+        
+        VIP v = (VIP)json.obtenerObjetoJson(VIPLista.get(vipName));
+        v.postMessage(m);
+        String s1 = json.establecerJson(v);
+        MensajeObject objeto = new MensajeObject();
+        objeto.setComando("Postear mensaje");
+        objeto.setNombreAplcacion("RedSocial");
+        objeto.setKey(v.getUsername());
+        objeto.setObjeto(s1);
+        enviarMensaje(objeto);
+        
+    }
+    public ArrayList<Mensaje> verMensajes(String vipName) {
+        VIP v = (VIP)json.obtenerObjetoJson(VIPLista.get(vipName));
+        return v.getMensajes();
+       
+    }
+    
+    public void darDeBaja(String vipName){
+        VIP v = (VIP)json.obtenerObjetoJson(VIPLista.get(vipName));
+        v.setEstado(false); //inactivo
+        String s1 = json.establecerJson(v);
+        MensajeObject objeto = new MensajeObject();
+        objeto.setComando("Postear mensaje");
+        objeto.setNombreAplcacion("RedSocial");
+        objeto.setKey(v.getUsername());
+        objeto.setObjeto(s1);
+        enviarMensaje(objeto);
     }
     
     public static void main(String[] args) throws Exception {

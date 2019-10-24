@@ -5,6 +5,8 @@
  */
 package VistaVIP;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author derec
@@ -16,6 +18,7 @@ public class VistaPostear extends javax.swing.JFrame {
      */
     public VistaPostear() {
         initComponents();
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }
 
     /**

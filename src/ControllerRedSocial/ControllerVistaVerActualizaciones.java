@@ -99,7 +99,7 @@ public class ControllerVistaVerActualizaciones implements ActionListener{
                         
                         if(nlikes % 2 == 0 && nlikes != 0){            //2 likes
                             
-                            follower.setNotificacion(v.getUsername(), "El mensaje: "+m.getContenido()+" de "+v.getUsername()+ "ha llegado a "+nlikes+" likes\n");
+                            follower.setNotificacion(v.getUsername(), "El mensaje: "+m.getContenido()+" de "+v.getUsername()+ " ha llegado a "+nlikes+" likes\n");
                         }
                         JOptionPane.showMessageDialog(vista, "Reaccion agregada!");
 

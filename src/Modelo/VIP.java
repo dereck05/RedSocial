@@ -7,6 +7,7 @@ package Modelo;
 
 import Modelo.User;
 import Modelo.Follower;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  */
 public class VIP extends User {
     private ArrayList<Mensaje> mensajes;
-    private ArrayList<Follower> followers;
+    private ArrayList<ObjectOutputStream> followers;
     private Boolean activo;
     private int nivel;
     
@@ -29,14 +30,15 @@ public class VIP extends User {
     public ArrayList getMensajes(){
         return mensajes;
     }
-    public ArrayList<Follower> getFollowers(){
+    public ArrayList<ObjectOutputStream> getFollowers(){
         return followers;
     }
+    
     public void postMessage(Mensaje msg){
         
         mensajes.add(msg);                   
     }
-    public void addFollower(Follower f){
+    public void addFollower(ObjectOutputStream f){
         followers.add(f);                    
     }
     public void addNivel(){

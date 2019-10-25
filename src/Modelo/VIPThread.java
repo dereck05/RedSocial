@@ -86,7 +86,7 @@ public class VIPThread extends Thread implements IObserver,Serializable, Runnabl
             System.out.println(opcion.getComando());
             switch (opcion.getComando()){
                 case "notificacion observador":
-                    VIPJson = opcion.getObjeto();
+                    VIPJson = (String)opcion.getObjeto();
                     VIPLista = json.obtenerHashMapObjetoJson(VIPJson);
 
                     break;

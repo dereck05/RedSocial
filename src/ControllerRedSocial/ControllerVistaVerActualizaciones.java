@@ -5,24 +5,38 @@
  */
 package ControllerRedSocial;
 
+import Modelo.JsonFollower;
+import Modelo.Mensaje;
+import Modelo.FollowerThread;
 import VistaFollower.VistaVerActualizaciones;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
-/**
- *
- * @author naty9
- */
-public class ControllerVistaVerActualizaciones implements ActionListener{
-    private VistaVerActualizaciones vista;
+
+public class ControllerVistaVerActualizaciones{
+    VistaVerActualizaciones vista;
+    FollowerThread follower;
+    
+    JsonFollower json;
             
-    public ControllerVistaVerActualizaciones(VistaVerActualizaciones pVista){
+    public ControllerVistaVerActualizaciones(VistaVerActualizaciones pVista,FollowerThread pFollower){
         this.vista = pVista;
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.follower = pFollower;
+        json = new JsonFollower();
+        //verMensajes();
+        
+        
     }
     
 }
+
+    
+//    public void verMensajes(){
+//        ArrayList<Mensaje> m = famoso.verMensajes(famoso.getFollower().getUsername());
+//        for (int i =0 ; i< m.size(); i++){
+//            Mensaje msg = m.get(i);
+//            vista.txtMensajePosteado.append("Post #"+Integer.toString(i+1)+": "+msg.getContenido()+"\nLikes: "+msg.getLikes()+"\nDislikes: "+msg.getDislikes()+"\n\n");
+//        }
+//    }
+    

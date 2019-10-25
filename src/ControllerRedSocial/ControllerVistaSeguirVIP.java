@@ -5,6 +5,7 @@
  */
 package ControllerRedSocial;
 
+import Modelo.FollowerThread;
 import VistaFollower.VistaSeguirVIP;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,10 @@ public class ControllerVistaSeguirVIP implements ActionListener {
             
     public ControllerVistaSeguirVIP(VistaSeguirVIP pVista){
         this.vista = pVista;
+    }
+
+    ControllerVistaSeguirVIP(VistaSeguirVIP vds, FollowerThread follower) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

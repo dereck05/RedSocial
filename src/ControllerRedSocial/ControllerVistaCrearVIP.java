@@ -42,7 +42,7 @@ public class ControllerVistaCrearVIP implements ActionListener{
         ControllerVistaVIP cvds = new ControllerVistaVIP(vds,famoso);
         vds.setVisible(true);
         this.vista.setVisible(false);
-        JOptionPane.showMessageDialog(vista, "VIP Creado!");
+        JOptionPane.showMessageDialog(vista, "Follower Creado!");
     }
             
 }

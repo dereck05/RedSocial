@@ -42,8 +42,7 @@ public class ControllerVistaFollower extends Thread implements Serializable, Run
 //        this.json= new JsonFollower();
         this.vista.btn_follow.addActionListener(this);
         this.vista.btn_verEstados.addActionListener(this);
-        this.vista.btn_verEstados.addActionListener(this);
-        
+        this.vista.btnVerNotif.addActionListener(this);
         follower.saveFollower();
 
     }

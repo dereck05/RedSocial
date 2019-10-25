@@ -5,6 +5,8 @@
  */
 package VistaFollower;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author derec
@@ -16,6 +18,8 @@ public class VistaVerActualizaciones extends javax.swing.JFrame {
      */
     public VistaVerActualizaciones() {
         initComponents();
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
     }
 
     /**
@@ -29,25 +33,25 @@ public class VistaVerActualizaciones extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        listaMsj = new javax.swing.JList<>();
+        btnLike = new javax.swing.JButton();
+        btnDislike = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Ver Actualizaciones");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaMsj.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(listaMsj);
 
-        jButton1.setText("Like");
+        btnLike.setText("Like");
 
-        jButton2.setText("Dislike");
+        btnDislike.setText("Dislike");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,9 +67,9 @@ public class VistaVerActualizaciones extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(78, 78, 78)
-                .addComponent(jButton1)
+                .addComponent(btnLike)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnDislike)
                 .addGap(81, 81, 81))
         );
         layout.setVerticalGroup(
@@ -77,8 +81,8 @@ public class VistaVerActualizaciones extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnLike)
+                    .addComponent(btnDislike))
                 .addGap(37, 37, 37))
         );
 
@@ -121,10 +125,10 @@ public class VistaVerActualizaciones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton btnDislike;
+    public javax.swing.JButton btnLike;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JList<String> listaMsj;
     // End of variables declaration//GEN-END:variables
 }

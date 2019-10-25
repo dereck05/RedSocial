@@ -83,15 +83,13 @@ public class FollowerThread extends Thread implements IObserver,Serializable, Ru
         
         while(true){
             MensajeObject opcion = notifyObserver();
-            System.out.println(opcion.getComando());
             switch (opcion.getComando()){
                 case "notificacion observador":
                     VIPJson = (String)opcion.getObjeto();
                     VIPLista = jsonV.obtenerHashMapObjetoJson(VIPJson);
 
                     break;
-                case "actualizar follower":
-                    followerOS = (ObjectOutputStream)opcion.getObjeto();
+                
                 default:
                     System.out.println("Comando no encontrado");
                     break;           
@@ -110,6 +108,25 @@ public class FollowerThread extends Thread implements IObserver,Serializable, Ru
     public void setFollower(Follower subastador) {
         this.follower = follower;
     }
+    public ArrayList<VIP> obtenerVIP(){
+        ArrayList<VIP> vip = (ArrayList)jsonV.obtenerArrayObjetoJson(FollowerThread.VIPLista);
+        return vip;
+    }
+    public void setNotificacion(String vipID,String msj){
+        VIP v = (VIP)jsonV.obtenerObjetoJson(VIPLista.get(vipID));
+        for(Follower fol:v.getFollowers()){
+            fol.addNotificacion(msj);
+        }
+        String objJson = jsonV.establecerJson(v);
+        MensajeObject objeto = new MensajeObject();
+        objeto.setComando("Ver Mensajes");
+        objeto.setKey(vipID);
+        objeto.setObjeto(objJson);
+        objeto.setNombreAplcacion("RedSocial");
+        enviarMensaje(objeto);
+    }
+    
+    
     public void saveFollower(){
         String objJson = jsonF.establecerJson(follower);
         MensajeObject objeto = new MensajeObject();
@@ -119,20 +136,34 @@ public class FollowerThread extends Thread implements IObserver,Serializable, Ru
         objeto.setNombreAplcacion("RedSocial");
         enviarMensaje(objeto);
     }
-    public void seguirVIP(String vipID) {
-        
+    public void seguirVIP(String vipID){
         VIP v = (VIP)jsonV.obtenerObjetoJson(VIPLista.get(vipID));
+        v.addFollower(follower);
+        int cant = v.getFollowers().size();
+        if (cant % 2 == 0 && cant!=0){     //2 followers
+            v.addNivel();
+            String newlevel = v.getNivel();
+            setNotificacion(v.getUsername(),"El VIP "+v.getUsername()+ "ha subido a nivel "+newlevel+"\n");
+            v = (VIP)jsonV.obtenerObjetoJson(VIPLista.get(vipID));
+        }
         String objJson = jsonV.establecerJson(v);
-        v.addFollower(followerOS);
         MensajeObject objeto = new MensajeObject();
         objeto.setComando("Seguir VIP");
-        objeto.setNombreAplcacion("RedSocial");
-        objeto.setKey(v.getUsername());
+        objeto.setKey(vipID);
         objeto.setObjeto(objJson);
+        objeto.setNombreAplcacion("RedSocial");
         enviarMensaje(objeto);
-        
     }
     
+    public void reaccionarAMensaje(VIP v){
+        String objJson = jsonV.establecerJson(v);
+        MensajeObject objeto = new MensajeObject();
+        objeto.setComando("Reaccionar a mensaje");
+        objeto.setKey(v.getUsername());
+        objeto.setObjeto(objJson);
+        objeto.setNombreAplcacion("RedSocial");
+        enviarMensaje(objeto);
+    }
     public static void main(String[] args) throws Exception {
         FollowerThread st = new FollowerThread();
         st.conectarConElServidor();
@@ -147,6 +178,7 @@ public class FollowerThread extends Thread implements IObserver,Serializable, Ru
     public MensajeObject notifyObserver() {
         MensajeObject mensaje = new MensajeObject();
         try{
+            
             mensaje = (MensajeObject) is.readObject();
             System.out.println("Si recibe mensaje: " + mensaje);
             return mensaje;

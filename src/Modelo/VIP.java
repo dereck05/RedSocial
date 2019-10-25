@@ -16,7 +16,8 @@ import java.util.ArrayList;
  */
 public class VIP extends User {
     private ArrayList<Mensaje> mensajes;
-    private ArrayList<ObjectOutputStream> followers;
+    private ArrayList<Follower> followers;
+    private ArrayList<String> notificaciones;
     private Boolean activo;
     private int nivel;
     
@@ -26,11 +27,12 @@ public class VIP extends User {
         this.followers = new ArrayList<>();
         this.activo = true;
         this.nivel =0;
+        
     }
     public ArrayList getMensajes(){
         return mensajes;
     }
-    public ArrayList<ObjectOutputStream> getFollowers(){
+    public ArrayList<Follower> getFollowers(){
         return followers;
     }
     
@@ -38,7 +40,7 @@ public class VIP extends User {
         
         mensajes.add(msg);                   
     }
-    public void addFollower(ObjectOutputStream f){
+    public void addFollower(Follower f){
         followers.add(f);                    
     }
     public void addNivel(){

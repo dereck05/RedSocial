@@ -5,9 +5,11 @@
  */
 package ControllerRedSocial;
 
+import Modelo.Follower;
 import Modelo.JsonFollower;
 import Modelo.Mensaje;
 import Modelo.FollowerThread;
+import Modelo.VIP;
 import VistaFollower.VistaVerActualizaciones;
 import VistaFollower.VistaVerNotificaciones;
 import java.awt.event.ActionEvent;
@@ -25,9 +27,26 @@ public class ControllerVistaVerNotificaciones{
         this.vista = pVista;
         this.follower = pFollower;
         json = new JsonFollower();
-        //verMensajes();
+        verNotificaciones();
         
         
+    }
+    public void verNotificaciones(){
+       String notif = "";
+       ArrayList<VIP> arr = follower.obtenerVIP();
+       for(int i=0;i<arr.size();i++){
+           VIP v = (VIP)arr.get(i);
+           for(Follower f:v.getFollowers()){
+               String fol1 = follower.getFollower().getUsername();
+               String fol2 = f.getUsername();
+               if(fol1.equals(fol2)){
+                   notif += f.getNotificaciones()+"\n\n";
+                   vista.txt_notificaciones.append(notif);
+               }
+           }
+           
+           
+       }
     }
     
 }

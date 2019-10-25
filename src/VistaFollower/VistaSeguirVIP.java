@@ -5,6 +5,8 @@
  */
 package VistaFollower;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author derec
@@ -16,6 +18,8 @@ public class VistaSeguirVIP extends javax.swing.JFrame {
      */
     public VistaSeguirVIP() {
         initComponents();
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
     }
 
     /**

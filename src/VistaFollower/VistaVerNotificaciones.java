@@ -5,6 +5,8 @@
  */
 package VistaFollower;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author derec
@@ -16,6 +18,8 @@ public class VistaVerNotificaciones extends javax.swing.JFrame {
      */
     public VistaVerNotificaciones() {
         initComponents();
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
     }
 
     /**

@@ -12,11 +12,20 @@ import java.util.ArrayList;
  * @author derec
  */
 public class Follower extends User {
-    private ArrayList <VIP> followed;
+    private transient ArrayList <VIP> followed;
+    private ArrayList<String> notificaciones;
     
     public Follower(String nombre, String apellido1, String apellido2, String username){
         super(nombre, apellido1, apellido2,username);
         this.followed = new ArrayList<>();
+        this.notificaciones = new ArrayList<>();
+    }
+    
+    public void addNotificacion(String s){
+        notificaciones.add(s);
+    }
+    public ArrayList<String> getNotificaciones(){
+        return this.notificaciones;
     }
     
 }

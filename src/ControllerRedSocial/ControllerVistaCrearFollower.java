@@ -1,17 +1,10 @@
 package ControllerRedSocial;
 
-import API.MensajeObject;
-import Modelo.JsonFollower;
-import Modelo.Follower;
 import Modelo.FollowerThread;
 import VistaFollower.VistaCrearFollower;
 import VistaFollower.VistaFollower;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControllerVistaCrearFollower implements ActionListener{

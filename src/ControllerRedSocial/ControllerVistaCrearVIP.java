@@ -5,18 +5,11 @@
  */
 package ControllerRedSocial;
 
-import API.MensajeObject;
-import Modelo.JsonVIP;
-import Modelo.VIP;
 import Modelo.VIPThread;
 import VistaVIP.VistaCrearVIP;
 import VistaVIP.VistaVIP;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControllerVistaCrearVIP implements ActionListener{

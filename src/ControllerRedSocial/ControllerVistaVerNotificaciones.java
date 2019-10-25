@@ -7,13 +7,9 @@ package ControllerRedSocial;
 
 import Modelo.Follower;
 import Modelo.JsonFollower;
-import Modelo.Mensaje;
 import Modelo.FollowerThread;
 import Modelo.VIP;
-import VistaFollower.VistaVerActualizaciones;
 import VistaFollower.VistaVerNotificaciones;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 

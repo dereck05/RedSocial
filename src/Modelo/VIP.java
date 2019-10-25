@@ -5,9 +5,6 @@
  */
 package Modelo;
 
-import Modelo.User;
-import Modelo.Follower;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 /**

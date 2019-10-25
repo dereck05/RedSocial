@@ -6,10 +6,8 @@
 package ControllerRedSocial;
 
 import Modelo.*;
-import API.MensajeObject;
 import Modelo.VIPThread;
 import VistaVIP.VistaPostear;
-import VistaVIP.VistaVIP;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;

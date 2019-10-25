@@ -9,8 +9,6 @@ import Modelo.JsonVIP;
 import Modelo.Mensaje;
 import Modelo.VIPThread;
 import VistaVIP.VistaVerMensajes;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
